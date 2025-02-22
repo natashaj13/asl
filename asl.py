@@ -4,4 +4,4 @@ import numpy as np
 
 st.title('ASL Translator')
 
-st.camera_input()
+st.camera_input("sign")
