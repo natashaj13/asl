@@ -4,4 +4,5 @@ import numpy as np
 
 st.title('ASL Translator')
 
-st.camera_input()
+enable = st.checkbox("Enable camera")
+st.camera_input("Translate ASL", disabled=not enable)
