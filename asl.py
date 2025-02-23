@@ -8,16 +8,95 @@ from ultralytics import YOLO
 model_path = "best.pt"
 model = YOLO(model_path)
 
-st.set_page_config(page_title="ASL Translator", page_icon="🤟")
+st.set_page_config(page_title="SwiftSign", page_icon="🤟")
+
+# Get the font link from Google Fonts
+font_url = "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" 
+
+# Inject the CSS
+st.markdown(
+    f"""
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        html, body, [class*="css"]  {{
+        font-family: 'Open Sans', sans-serif !important;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown("""
-    <style>
-    h1 { text-align: center; color: #FF5733; font-family: 'Tahoma'; }
-    html, body { font-family: 'Tahoma', sans-serif; }
-    .navbar { background-color: #007fff; padding: 5px; text-align: center; margin-bottom: 20px; }
-    .navbar a { color: white; padding: 7px 10px; text-decoration: none; font-size: 18px; }
-    .navbar a:hover { background-color: #D3D3D3; color: black; transition: 0.3s ease-in; }
-    </style>
+  <style>
+    /* Title styling */
+    h1 {
+        text-align: center;
+        margin-top: 40px;    
+        font-size: 40px;
+        font-weight: 500;  
+        padding-bottom: 0;  
+        color: #00008B;
+    }
+
+    html,
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .css-18e3th9 { 
+        padding-top: 0rem; 	
+        padding-bottom: 0rem; 
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .navbar {
+        background-color: #007fff;
+        padding: 12px;
+        text-align: center;
+        top: 0;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        width: 100%;
+        z-index: 1000;
+        text-align: left;
+    }
+
+    .navbar a {
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 22px;
+        display: inline-block;
+    }
+
+    .navbar a:hover {
+        background-color: #D3D3D3;
+        color: black;
+        transition: 0.3s ease-in;
+    }
+    .content {
+        margin-top: 60px; /* Add margin to push content below the navbar */
+    }
+
+    .p {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 24px;
+    }
+
+    .video {
+      text-align: center;
+    }
+
+    #prediction {
+      font-size: 30px;
+      text-align: center;
+    }
+</style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
@@ -31,8 +110,10 @@ query_params = st.query_params
 tab = query_params.get("page", "home")
 
 if tab == "home":
-    st.title("ASL Translator")
-    st.write("Signal into the camera to translate from sign language")
+    st.markdown("""
+        <h1 style="color: #00008B; font-size: 50px; font-weight: 500; padding-bottom: 0;">SwiftSign</h1>
+        <p class="p" style="font-size: 22px; margin-top:10px;">Signal into the camera to translate from sign language
+    """, unsafe_allow_html=True)
 
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -84,7 +165,7 @@ if tab == "home":
     cv2.destroyAllWindows()
 
 elif tab == "about":
-    st.markdown("<h1 style='text-align: center;'>ASL Chart</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #00008B; font-size: 50px; font-weight: 500;'>ASL Chart</h1>", unsafe_allow_html=True)
     try:
         st.image("aslchart.png", caption="Sign language alphabet")
     except Exception as e:
