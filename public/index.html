@@ -111,5 +111,25 @@
       console.log("Disconnected from WebSocket");
     };
   </script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAl19qhhPJgza-cmcxzhRV97d4d6ItcJV8",
+      authDomain: "asl-translator-7e3a9.firebaseapp.com",
+      projectId: "asl-translator-7e3a9",
+      storageBucket: "asl-translator-7e3a9.firebasestorage.app",
+      messagingSenderId: "125317514050",
+      appId: "1:125317514050:web:a41c82712c041fdf243edb"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>
