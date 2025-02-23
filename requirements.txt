@@ -1,4 +1,7 @@
 streamlit==1.41.1
-numpy==2.0.2
+numpy==1.26.4
 opencv-python-headless
 ultralytics
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
