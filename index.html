@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASL Recognition</title>
+</head>
+<body>
+  <h1>Real-Time ASL Recognition</h1>
+  <div id="prediction"></div>
+  <img id="videoFrame" style="width: 640px; height: 480px;" />
+  
+  <script>
+    const ws = new WebSocket("ws://127.0.0.1:8000/ws");
+
+    ws.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      const image = document.getElementById("videoFrame");
+      const prediction = document.getElementById("prediction");
+
+      image.src = "data:image/jpeg;base64," + data.image;
+      prediction.textContent = "Prediction: " + data.prediction;
+    };
+
+    ws.onopen = function() {
+      console.log("Connected to WebSocket");
+    };
+
+    ws.onclose = function() {
+      console.log("Disconnected from WebSocket");
+    };
+  </script>
+</body>
+</html>
