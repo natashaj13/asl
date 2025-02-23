@@ -77,9 +77,9 @@ def load_model():
 
 model = load_model()
 
-classes = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J', 10: 'K', 
-           11: 'L', 12: 'M', 13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17:'R', 18:'S', 19:'T', 20:'U', 21:'V', 
-           22:'W', 23:'X', 24:'Y',25: 'Z', 26:'del', 27:'nothing', 28:'space'}
+classes = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'del', 5: 'E', 6: 'F', 7: 'G', 8: 'H', 9: 'I', 10: 'J', 
+           11: 'K', 12: 'L', 13: 'M', 14: 'N', 15: 'nothing', 16: 'O', 17:'P', 18:'Q', 19:'R', 20:'S', 21:'space', 
+           22:'T', 23:'U', 24:'V',25: 'W', 26:'X', 27:'Y', 28:'Z'}
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
@@ -107,7 +107,7 @@ tab = query_params.get("page", "home")  # Default to "home" if no parameter
 
 if tab == "home":
     st.title("ASL Translator")
-    st.write("Sign into the camera to translate from sign language")
+    st.write("Signal into the camera to translate from sign language")
 
 
     cap = cv2.VideoCapture(0)
